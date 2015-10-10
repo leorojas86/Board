@@ -6,9 +6,9 @@ public class ScrabbleBoardData
 {
     #region Variables
 
-    private List<List<ScrabbleBoardSlotData>> _slotsMatrix = new List<List<ScrabbleBoardSlotData>>();
+    private List<List<ScrabbleBoardSlotData>> slotsMatrix = new List<List<ScrabbleBoardSlotData>>();
 
-    private int _boardSize = 15;
+    private int boardSize = 15;
 
     #endregion
 }

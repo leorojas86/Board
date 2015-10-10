@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScrabbleLogicManager : MonoBehaviour {
+public class ScrabbleLogicManager
+{
+    #region Variables
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public ScrabbleWordsDatabase wordsDatabase  = new ScrabbleWordsDatabase();
+    public ScrabbleChipsDeckData deck           = new ScrabbleChipsDeckData();
+    public ScrabbleBoardData board              = new ScrabbleBoardData();
+
+    #endregion
 }
