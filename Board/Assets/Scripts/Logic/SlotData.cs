@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScrabbleBoardSlotData
+public class SlotData
 {
     #region Variables
 
-    private ScrabbleChipData chip = null;
+    private ChipData chip = null;
 
     #endregion
 }

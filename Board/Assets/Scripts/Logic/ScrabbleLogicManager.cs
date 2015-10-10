@@ -5,9 +5,9 @@ public class ScrabbleLogicManager
 {
     #region Variables
 
-    public ScrabbleWordsDatabase wordsDatabase  = new ScrabbleWordsDatabase();
-    public ScrabbleChipsDeckData deck           = new ScrabbleChipsDeckData();
-    public ScrabbleBoardData board              = new ScrabbleBoardData();
+    public WordsDatabase wordsDatabase  = new WordsDatabase();
+    public DeckData deck                = new DeckData();
+    public BoardData board              = new BoardData();
 
     #endregion
 }

@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ScrabbleChipsDeckData
+public class DeckData
 {
     #region Variables
 
-    private List<ScrabbleBoardSlotData> slotsList = new List<ScrabbleBoardSlotData>();
+    private List<SlotData> slotsList = new List<SlotData>();
 
     private int deckSize = 7;
 
