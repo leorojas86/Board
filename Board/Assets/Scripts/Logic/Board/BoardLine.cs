@@ -17,6 +17,20 @@ public class BoardLine
         get { return _slots; }
     }
 
+    public bool HasNewLetters
+    {
+        get
+        {
+            for(int x = 0; x < _slots.Count; x++)
+            {
+                if(_slots[x].HasTemporalChip)
+                    return true;
+            }
+
+            return false;
+        }
+    }
+
     #endregion
 
     #region Constructors

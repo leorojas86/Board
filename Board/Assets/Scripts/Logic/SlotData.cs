@@ -5,8 +5,8 @@ public class SlotData
 {
     #region Variables
 
-    private ChipData _chip       = null;
-    private bool _isTemporalChip = false;
+    private ChipData _chip        = null;
+    private bool _hasTemporalChip = false;
 
     #endregion
 
@@ -18,8 +18,13 @@ public class SlotData
         set
         {
             _chip           = value;
-            _isTemporalChip = true;
+            _hasTemporalChip = true;
         }
+    }
+
+    public bool HasTemporalChip
+    {
+        get { return _hasTemporalChip; }
     }
 
     #endregion
@@ -28,13 +33,13 @@ public class SlotData
 
     public void Commit()
     {
-        _isTemporalChip = false;
+        _hasTemporalChip = false;
     }
 
     public void Revert()
     {
         _chip           = null;
-        _isTemporalChip = false;
+        _hasTemporalChip = false;
     }
 
     #endregion

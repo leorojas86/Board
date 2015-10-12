@@ -58,8 +58,30 @@ public class BoardData
 
     public BoardResult ValidateWord()
     {
+        if (GetNumerOfLinesUsed() > 1)
+            return BoardResult.AllLettersMustBeOnSameLine;
 
         return BoardResult.OK;
+    }
+
+    private int GetNumerOfLinesUsed()
+    {
+        int numberOfLinesUsed = 0;
+
+        for(int x = 0; x < _verticalLines.Count; x++)
+        {
+            if (_verticalLines[x].HasNewLetters)
+                numberOfLinesUsed++;
+        }
+
+
+        for (int x = 0; x < _horizontalLines.Count; x++)
+        {
+            if (_horizontalLines[x].HasNewLetters)
+                numberOfLinesUsed++;
+        }
+
+        return numberOfLinesUsed;
     }
 
     private void CreateSlotsMatrix()
