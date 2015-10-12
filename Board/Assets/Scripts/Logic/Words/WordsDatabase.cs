@@ -26,6 +26,9 @@ public class WordsDatabase
     {
         words.AddRange(GetStringsFromFile(WORDS_FILE));
         letters.AddRange(GetStringsFromFile(LETTERS_FILE));
+
+        //Debug.Log(words.Count);
+        //Debug.Log(letters.Count);
     }
 
     private string[] GetStringsFromFile(string file)

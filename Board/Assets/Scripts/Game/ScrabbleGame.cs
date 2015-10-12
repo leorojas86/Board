@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScrabbleGame
+public class ScrabbleGame : MonoBehaviour
 {
     #region Methods
 
