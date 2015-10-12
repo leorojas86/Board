@@ -6,13 +6,36 @@ public class WordsDatabase
 {
     #region Constants
 
-    private const string WORDS_FILE = "words";
+    private static string[] STRINGS_SEPARATOR = new string[] { "\n" };
+
+    private const string WORDS_FILE   = "English/Words";
+    private const string LETTERS_FILE = "English/Letters"; 
 
     #endregion
 
     #region Variables
 
-    public List<WordData> words = new List<WordData>();
+    public List<string> words   = new List<string>();
+    public List<string> letters = new List<string>();
 
     #endregion
+
+    #region Constructors
+
+    public WordsDatabase()
+    {
+        words.AddRange(GetStringsFromFile(WORDS_FILE));
+        letters.AddRange(GetStringsFromFile(LETTERS_FILE));
+    }
+
+    private string[] GetStringsFromFile(string file)
+    {
+        TextAsset textAsset = Resources.Load<TextAsset>(file);
+
+        return textAsset.text.Split(STRINGS_SEPARATOR, System.StringSplitOptions.RemoveEmptyEntries);
+    }
+
+    #endregion
+
+
 }

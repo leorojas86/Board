@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 
 public class WordData
@@ -8,4 +8,4 @@ public class WordData
     public string letters = string.Empty;
 
     #endregion
-}
+}*/
