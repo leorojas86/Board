@@ -3,6 +3,13 @@ using System.Collections;
 
 public class ScrabbleLogicManager
 {
+    #region Constants
+
+    private int DEFAULT_BOARD_SIZE = 15;
+    private int DEFAULT_DECK_SIZE  = 7;
+
+    #endregion
+
     #region Variables
 
     public WordsDatabase wordsDatabase  = new WordsDatabase();
@@ -37,7 +44,8 @@ public class ScrabbleLogicManager
 
     public void Initialize()
     {
-
+        board.BoardSize = DEFAULT_BOARD_SIZE;
+        deck.DeckSize   = DEFAULT_DECK_SIZE;
     }
 
     #endregion
