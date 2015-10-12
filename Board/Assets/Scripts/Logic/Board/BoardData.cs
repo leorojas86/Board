@@ -4,6 +4,18 @@ using System.Collections.Generic;
 
 public class BoardData 
 {
+    #region Enums
+
+    public enum BoardResult
+    {
+        OK,
+        FirstWorkMustUseCenterSlot,
+        AllLettersMustBeOnSameLine,
+        InvalidWord
+    }
+
+    #endregion
+
     #region Variables
 
     private List<List<SlotData>> _slotsMatrix = new List<List<SlotData>>();
@@ -43,6 +55,12 @@ public class BoardData
     #endregion
 
     #region Methods
+
+    public BoardResult ValidateWord()
+    {
+
+        return BoardResult.OK;
+    }
 
     private void CreateSlotsMatrix()
     {
