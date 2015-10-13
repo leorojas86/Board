@@ -7,6 +7,10 @@ public class SlotData
 
     private ChipData _chip        = null;
     private bool _hasTemporalChip = false;
+    /*private SlotData _leftSlot    = null;
+    private SlotData _rightSlot   = null;
+    private SlotData _topSlot     = null;
+    private SlotData _bottomSlot  = null;*/
 
     #endregion
 
@@ -26,6 +30,30 @@ public class SlotData
     {
         get { return _hasTemporalChip; }
     }
+
+    /*public SlotData LeftSlot
+    {
+        get { return _leftSlot; }
+        set { _leftSlot = value; }
+    }
+
+    public SlotData RightSlot
+    {
+        get { return _rightSlot; }
+        set { _rightSlot = value; }
+    }
+
+    public SlotData TopSlot
+    {
+        get { return _topSlot; }
+        set { _topSlot = value; }
+    }
+
+    public SlotData BottomSlot
+    {
+        get { return _bottomSlot; }
+        set { _bottomSlot = value; }
+    }*/
 
     #endregion
 

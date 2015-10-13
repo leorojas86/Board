@@ -68,6 +68,9 @@ public class BoardData
         if(_centerSlot.Chip == null)
             return BoardResult.FirstWordMustUseCenterSlot;
 
+        if(CheckForNotTouchingLetters())
+            return BoardResult.NewWordMustTouchTheAtLeastOneLetterOnBoard;
+
         _modifiedLines = GetModifiedLines();
         _usedLines     = GetUsedLines(_modifiedLines);
 
@@ -82,6 +85,12 @@ public class BoardData
         Commit();
 
         return BoardResult.OK;
+    }
+
+    private bool CheckForNotTouchingLetters()
+    {
+
+        return false;
     }
 
     private void Commit()
@@ -157,10 +166,10 @@ public class BoardData
         _verticalLines.Clear();
         _horizontalLines.Clear();
 
-        for (int x = 0; x < _boardSize; x++)
+        for(int x = 0; x < _boardSize; x++)
             _horizontalLines.Add(new BoardLine());
 
-        for (int x = 0; x < _boardSize; x++)
+        for(int x = 0; x < _boardSize; x++)
         {
             List<SlotData> collum = CreateSlotsCollum();
             _slotsMatrix.Add(collum);
