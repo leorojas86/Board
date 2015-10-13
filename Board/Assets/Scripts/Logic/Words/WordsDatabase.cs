@@ -15,8 +15,8 @@ public class WordsDatabase
 
     #region Variables
 
-    public List<string> words   = new List<string>();
-    public List<string> letters = new List<string>();
+    private List<string> _words   = new List<string>();
+    private List<string> _letters = new List<string>();
 
     #endregion
 
@@ -24,8 +24,8 @@ public class WordsDatabase
 
     public WordsDatabase()
     {
-        words.AddRange(GetStringsFromFile(WORDS_FILE));
-        letters.AddRange(GetStringsFromFile(LETTERS_FILE));
+        _words.AddRange(GetStringsFromFile(WORDS_FILE));
+        _letters.AddRange(GetStringsFromFile(LETTERS_FILE));
 
         //Debug.Log(words.Count);
         //Debug.Log(letters.Count);
@@ -40,5 +40,13 @@ public class WordsDatabase
 
     #endregion
 
+    #region Methods
+
+    public bool HasWord(string word)
+    {
+        return _words.Contains(word);
+    }
+
+    #endregion
 
 }

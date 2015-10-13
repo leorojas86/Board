@@ -17,15 +17,30 @@ public class BoardLine
         get { return _slots; }
     }
 
-    public bool HasNewLetters
+    public int NewLettersCount
     {
         get
         {
+            int newLettersCount = 0;
+
             for(int x = 0; x < _slots.Count; x++)
             {
                 if(_slots[x].HasTemporalChip)
-                    return true;
+                    newLettersCount++;
             }
+
+            return newLettersCount;
+        }
+    }
+
+    public bool HasInvalidWord
+    {
+        get
+        {
+            string stringVar = GetString();
+
+            if(stringVar != string.Empty)
+                return ScrabbleLogicManager.Instance.WordsDatabase.HasWord(stringVar);
 
             return false;
         }
@@ -43,6 +58,31 @@ public class BoardLine
     public BoardLine(List<SlotData> slots)
     {
         _slots = slots;
+    }
+
+    #endregion
+
+    #region Methods
+
+    public string GetString()
+    {
+        string stringVar = string.Empty;
+
+        for(int x = 0; x < _slots.Count; x++)
+        {
+            SlotData currentSlot = _slots[x];
+
+            if (currentSlot.Chip != null)
+                stringVar += currentSlot.Chip.letter;
+        }
+
+        return stringVar;
+    }
+
+    public void Commit()
+    {
+        for(int x = 0; x < _slots.Count; x++)
+            _slots[x].Commit();
     }
 
     #endregion

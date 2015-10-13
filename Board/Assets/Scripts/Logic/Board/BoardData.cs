@@ -9,9 +9,9 @@ public class BoardData
     public enum BoardResult
     {
         OK,
-        FirstWorkMustUseCenterSlot,
+        FirstWordMustUseCenterSlot,
         AllLettersMustBeOnSameLine,
-        InvalidWord
+        InvalidWords
     }
 
     #endregion
@@ -22,6 +22,12 @@ public class BoardData
 
     private List<BoardLine> _verticalLines   = new List<BoardLine>();
     private List<BoardLine> _horizontalLines = new List<BoardLine>();
+
+    private SlotData _centerSlot = null;
+
+    private List<BoardLine> _modifiedLines      = null;
+    private List<BoardLine> _usedLines          = null;
+    private List<BoardLine> _invalidWordLines   = null;
 
     private int _boardSize = 0;
 
@@ -56,32 +62,92 @@ public class BoardData
 
     #region Methods
 
-    public BoardResult ValidateWord()
+    public BoardResult ValidateBoard()
     {
-        if (GetNumerOfLinesUsed() > 1)
+        if(_centerSlot.Chip == null)
+            return BoardResult.FirstWordMustUseCenterSlot;
+
+        _modifiedLines = GetModifiedLines();
+        _usedLines     = GetUsedLines(_modifiedLines);
+
+        if(_usedLines.Count > 1)
             return BoardResult.AllLettersMustBeOnSameLine;
+
+        _invalidWordLines = GetInvalidWordLines();
+
+        if(_invalidWordLines.Count > 0)
+            return BoardResult.InvalidWords;
+
+        Commit();
 
         return BoardResult.OK;
     }
 
-    private int GetNumerOfLinesUsed()
+    private void Commit()
     {
-        int numberOfLinesUsed = 0;
+        for(int x = 0; x < _usedLines.Count; x++)
+            _usedLines[x].Commit();
+    }
 
-        for(int x = 0; x < _verticalLines.Count; x++)
+    private List<BoardLine> GetInvalidWordLines()
+    {
+        List<BoardLine> invalidWordLines = new List<BoardLine>();
+
+        for (int x = 0; x < _verticalLines.Count; x++)
         {
-            if (_verticalLines[x].HasNewLetters)
-                numberOfLinesUsed++;
-        }
+            BoardLine currentLine = _verticalLines[x];
 
+            if (currentLine.HasInvalidWord)
+                invalidWordLines.Add(currentLine);
+        }
 
         for (int x = 0; x < _horizontalLines.Count; x++)
         {
-            if (_horizontalLines[x].HasNewLetters)
-                numberOfLinesUsed++;
+            BoardLine currentLine = _horizontalLines[x];
+
+            if (currentLine.HasInvalidWord)
+                invalidWordLines.Add(currentLine);
         }
 
-        return numberOfLinesUsed;
+        return invalidWordLines;
+    }
+
+    private List<BoardLine> GetUsedLines(List<BoardLine> modifiedLines)
+    {
+        List<BoardLine> usedLines = new List<BoardLine>();
+
+        for (int x = 0; x < modifiedLines.Count; x++)
+        {
+            BoardLine currentLine = modifiedLines[x];
+
+            if(currentLine.NewLettersCount > 1)
+                usedLines.Add(currentLine);
+        }
+
+        return usedLines;
+    }
+
+    private List<BoardLine> GetModifiedLines()
+    {
+        List<BoardLine> modifiedLines = new List<BoardLine>();
+
+        for(int x = 0; x < _verticalLines.Count; x++)
+        {
+            BoardLine currentLine = _verticalLines[x];
+
+            if (currentLine.NewLettersCount > 0)
+                modifiedLines.Add(currentLine);
+        }
+
+        for (int x = 0; x < _horizontalLines.Count; x++)
+        {
+            BoardLine currentLine = _horizontalLines[x];
+
+            if(currentLine.NewLettersCount > 0)
+                modifiedLines.Add(currentLine);
+        }
+
+        return modifiedLines;
     }
 
     private void CreateSlotsMatrix()
@@ -99,6 +165,9 @@ public class BoardData
             _slotsMatrix.Add(collum);
             _verticalLines.Add(new BoardLine(collum));
         }
+
+        int centerIndex = _boardSize / 2;
+        _centerSlot     = _slotsMatrix[centerIndex][centerIndex];
     }
 
     private List<SlotData> CreateSlotsCollum()
