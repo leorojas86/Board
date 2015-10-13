@@ -10,8 +10,9 @@ public class BoardData
     {
         OK,
         FirstWordMustUseCenterSlot,
-        AllLettersMustBeOnSameLine,
-        InvalidWords
+        NewWordMustTouchTheAtLeastOneLetterOnBoard,
+        NewWordLettersMustBeOnSameLine,
+        ThereAreInvalidWords
     }
 
     #endregion
@@ -71,12 +72,12 @@ public class BoardData
         _usedLines     = GetUsedLines(_modifiedLines);
 
         if(_usedLines.Count > 1)
-            return BoardResult.AllLettersMustBeOnSameLine;
+            return BoardResult.NewWordLettersMustBeOnSameLine;
 
         _invalidWordLines = GetInvalidWordLines();
 
         if(_invalidWordLines.Count > 0)
-            return BoardResult.InvalidWords;
+            return BoardResult.ThereAreInvalidWords;
 
         Commit();
 
