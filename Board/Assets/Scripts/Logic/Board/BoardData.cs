@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -19,12 +19,12 @@ public class BoardData
 
     #region Variables
 
-    private List<List<SlotData>> _slotsMatrix = new List<List<SlotData>>();
+    private List<List<BoardSlotData>> _slotsMatrix = new List<List<BoardSlotData>>();
 
     private List<BoardLine> _verticalLines   = new List<BoardLine>();
     private List<BoardLine> _horizontalLines = new List<BoardLine>();
 
-    private SlotData _centerSlot = null;
+    private BoardSlotData _centerSlot = null;
 
     private List<BoardLine> _modifiedLines      = null;
     private List<BoardLine> _usedLines          = null;
@@ -171,7 +171,7 @@ public class BoardData
 
         for(int x = 0; x < _boardSize; x++)
         {
-            List<SlotData> collum = CreateSlotsCollum();
+            List<BoardSlotData> collum = CreateSlotsCollum();
             _slotsMatrix.Add(collum);
             _verticalLines.Add(new BoardLine(collum));
         }
@@ -180,13 +180,13 @@ public class BoardData
         _centerSlot     = _slotsMatrix[centerIndex][centerIndex];
     }
 
-    private List<SlotData> CreateSlotsCollum()
+    private List<BoardSlotData> CreateSlotsCollum()
     {
-        List<SlotData> slotsCollum = new List<SlotData>();
+        List<BoardSlotData> slotsCollum = new List<BoardSlotData>();
 
         for (int x = 0; x < _boardSize; x++)
         {
-            SlotData slot = new SlotData();
+            BoardSlotData slot = new BoardSlotData();
             slotsCollum.Add(slot);
             _horizontalLines[x].Slots.Add(slot);
         }

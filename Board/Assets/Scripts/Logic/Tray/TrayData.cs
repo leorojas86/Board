@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,7 +6,7 @@ public class TrayData
 {
     #region Variables
 
-    private List<SlotData> _slotsList = new List<SlotData>();
+	private List<TraySlotData> _slotsList = new List<TraySlotData>();
 
     private int _size = 0;
 
@@ -26,7 +26,7 @@ public class TrayData
                 _slotsList.Clear();
 
                 for (int x = 0; x < _size; x++)
-                    _slotsList.Add(new SlotData());
+					_slotsList.Add(new TraySlotData());
             }
         }
     }

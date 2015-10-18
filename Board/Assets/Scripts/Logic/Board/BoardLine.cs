@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,13 +6,13 @@ public class BoardLine
 {
     #region Variables
 
-    private List<SlotData> _slots = null;
+    private List<BoardSlotData> _slots = null;
 
     #endregion
 
     #region Properties
 
-    public List<SlotData> Slots
+    public List<BoardSlotData> Slots
     {
         get { return _slots; }
     }
@@ -52,10 +52,10 @@ public class BoardLine
 
     public BoardLine()
     {
-        _slots = new List<SlotData>();
+        _slots = new List<BoardSlotData>();
     }
 
-    public BoardLine(List<SlotData> slots)
+    public BoardLine(List<BoardSlotData> slots)
     {
         _slots = slots;
     }
@@ -70,7 +70,7 @@ public class BoardLine
 
         for(int x = 0; x < _slots.Count; x++)
         {
-            SlotData currentSlot = _slots[x];
+            BoardSlotData currentSlot = _slots[x];
 
             if (currentSlot.Chip != null)
                 stringVar += currentSlot.Chip.letter;

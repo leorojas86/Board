@@ -1,16 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SlotData
+public class TraySlotData
 {
     #region Variables
 
-    private ChipData _chip        = null;
-    private bool _hasTemporalChip = false;
-    /*private SlotData _leftSlot    = null;
-    private SlotData _rightSlot   = null;
-    private SlotData _topSlot     = null;
-    private SlotData _bottomSlot  = null;*/
+    private ChipData _chip = null;
 
     #endregion
 
@@ -19,16 +14,7 @@ public class SlotData
     public ChipData Chip
     {
         get { return _chip; }
-        set
-        {
-            _chip           = value;
-            _hasTemporalChip = true;
-        }
-    }
-
-    public bool HasTemporalChip
-    {
-        get { return _hasTemporalChip; }
+        set { _chip = value; }
     }
 
     /*public SlotData LeftSlot
@@ -59,16 +45,14 @@ public class SlotData
 
     #region Methods
 
-    public void Commit()
+    /*public void Commit()
     {
-        _hasTemporalChip = false;
     }
 
     public void Revert()
     {
-        _chip           = null;
-        _hasTemporalChip = false;
-    }
+        _chip = null;
+    }*/
 
     #endregion
 }
