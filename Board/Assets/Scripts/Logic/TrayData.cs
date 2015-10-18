@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class RackData
+public class TrayData
 {
     #region Variables
 
@@ -35,8 +35,17 @@ public class RackData
 
     #region Constructors
 
-    public RackData()
+    public TrayData()
     {
+    }
+
+    #endregion
+
+    #region Methods
+
+    public void Shuffle()
+    {
+
     }
 
     #endregion

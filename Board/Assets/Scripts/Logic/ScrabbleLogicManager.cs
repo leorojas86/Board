@@ -12,9 +12,9 @@ public class ScrabbleLogicManager
 
     #region Variables
 
-    private WordsDatabase _wordsDatabase  = new WordsDatabase();
-    private RackData _deck = new RackData();
-    private BoardData _board = new BoardData();
+    private WordsDatabase _wordsDatabase    = new WordsDatabase();
+    private TrayData _tray                  = new TrayData();
+    private BoardData _board                = new BoardData();
 
     private static ScrabbleLogicManager _instance = null;
 
@@ -39,6 +39,16 @@ public class ScrabbleLogicManager
         get { return _wordsDatabase; }
     }
 
+    public TrayData Tray
+    {
+        get { return _tray; }
+    } 
+
+    public BoardData Board
+    {
+        get { return _board; }
+    }
+
     #endregion
 
     #region Constructors
@@ -50,10 +60,9 @@ public class ScrabbleLogicManager
     public void Initialize()
     {
         _board.BoardSize = DEFAULT_BOARD_SIZE;
-        _deck.Size   = DEFAULT_DECK_SIZE;
+        _tray.Size       = DEFAULT_DECK_SIZE;
     }
 
     #endregion
-
 
 }
