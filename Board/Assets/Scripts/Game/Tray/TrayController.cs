@@ -27,7 +27,7 @@ public class TrayController : MonoBehaviour
 
 	void Update() 
 	{
-	
+		_fsm.Update();
 	}
 
 	#endregion

@@ -17,7 +17,7 @@ public class TrayLoadTrayState : TrayState
 	{
 		base.OnEnter();
 
-
+		LoadTraySlots();
 	}
 
 	private void LoadTraySlots()
@@ -31,16 +31,11 @@ public class TrayLoadTrayState : TrayState
 		
 		for(int x = 0; x < trayData.Size; x++)
 		{
-			for(int y = 0; y < trayData.Size; y++)
-			{
-				TraySlotController newInstance = GameObject.Instantiate(slotPrefab);
-				newInstance.transform.SetParent(_trayController.transform, true);
-				//newInstance.transform.localPosition = Vector3.zero;
-				newInstance.transform.localPosition = new Vector3(currentPosition, 0, 0);
+			TraySlotController newInstance = GameObject.Instantiate(slotPrefab);
+			newInstance.transform.SetParent(_trayController.transform, true);
+			//newInstance.transform.localPosition = Vector3.zero;
+			newInstance.transform.localPosition = new Vector3(currentPosition, 0, 0);
 				
-				currentPosition += ScrabbleConstants.TRAY_SLOT_DISTANCE;
-			}
-
 			currentPosition += ScrabbleConstants.TRAY_SLOT_DISTANCE;
 		}
 	}

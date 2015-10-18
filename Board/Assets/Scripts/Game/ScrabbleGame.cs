@@ -6,6 +6,7 @@ public class ScrabbleGame : MonoBehaviour
 	#region Variables
 
 	public BoardController board = null;
+	public TrayController tray   = null;
 
 	private static ScrabbleGame _instance = null;
 
@@ -29,6 +30,7 @@ public class ScrabbleGame : MonoBehaviour
         ScrabbleLogicManager.Instance.Initialize();
 
 		board.Initialize();
+		tray.Initialize();
     }
 
     #endregion
