@@ -26,10 +26,11 @@ public class BoardLoadBoardState : BoardState
 
 	private void LoadBoardSlots()
 	{
-		BoardData boardData 	  = ScrabbleLogicManager.Instance.Board;
-		SlotController slotPrefab = _boardController.slotPrefab;
-		Vector3 initialPosition   = new Vector3(Screen.width / 2, Screen.height / 2, 0);
-		Vector3 currentPosition   = initialPosition;
+		BoardData boardData 	  	= ScrabbleLogicManager.Instance.Board;
+		SlotController slotPrefab 	= _boardController.slotPrefab;
+		Vector2 boardSize		    = new Vector3(ScrabbleConstants.BOARD_SLOT_DISTANCE * boardData.Size, ScrabbleConstants.BOARD_SLOT_DISTANCE * boardData.Size, 0);
+		Vector3 initialPosition   	= new Vector3(-(boardSize.x / 2), -(boardSize.x / 2), 0);
+		Vector3 currentPosition   	= initialPosition;
 
 		for(int x = 0; x < boardData.Size; x++)
 		{
@@ -37,7 +38,7 @@ public class BoardLoadBoardState : BoardState
 			{
 				SlotController newInstance   	= GameObject.Instantiate(slotPrefab);
 				newInstance.transform.SetParent(_boardController.transform, true);
-				newInstance.transform.position  = currentPosition;
+				newInstance.transform.localPosition = currentPosition;
 
 				currentPosition.y += ScrabbleConstants.BOARD_SLOT_DISTANCE;
 			}
