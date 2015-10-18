@@ -5,20 +5,29 @@ public class BoardController : MonoBehaviour
 {
 	#region Variables
 
+	public SlotController slotPrefab = null;
 
+	private FSM _fsm = new FSM();
 
 	#endregion
 
 	#region Methods
 
-	void Start() 
+	public void Initialize()
 	{
-	
+		InitializeFSM();
 	}
-	
-	void Update() 
+
+	private void InitializeFSM()
 	{
-	
+		BoardLoadBoardState loadBoardState = new BoardLoadBoardState(this);
+
+		_fsm.CurrentState = loadBoardState;//Setting initial state
+	}
+
+	void Update()
+	{
+		_fsm.Update();
 	}
 
 	#endregion

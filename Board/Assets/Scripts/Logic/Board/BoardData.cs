@@ -30,20 +30,20 @@ public class BoardData
     private List<BoardLine> _usedLines          = null;
     private List<BoardLine> _invalidWordLines   = null;
 
-    private int _boardSize = 0;
+    private int _size = 0;
 
     #endregion
 
     #region Properties
 
-    public int BoardSize
+    public int Size
     {
-        get { return _boardSize; }
+        get { return _size; }
         set
         {
-            if(_boardSize != value)
+            if(_size != value)
             {
-                _boardSize = value;
+                _size = value;
 
                 CreateSlotsMatrix();
             }
@@ -166,17 +166,17 @@ public class BoardData
         _verticalLines.Clear();
         _horizontalLines.Clear();
 
-        for(int x = 0; x < _boardSize; x++)
+        for(int x = 0; x < _size; x++)
             _horizontalLines.Add(new BoardLine());
 
-        for(int x = 0; x < _boardSize; x++)
+        for(int x = 0; x < _size; x++)
         {
             List<BoardSlotData> collum = CreateSlotsCollum();
             _slotsMatrix.Add(collum);
             _verticalLines.Add(new BoardLine(collum));
         }
 
-        int centerIndex = _boardSize / 2;
+        int centerIndex = _size / 2;
         _centerSlot     = _slotsMatrix[centerIndex][centerIndex];
     }
 
@@ -184,7 +184,7 @@ public class BoardData
     {
         List<BoardSlotData> slotsCollum = new List<BoardSlotData>();
 
-        for (int x = 0; x < _boardSize; x++)
+        for (int x = 0; x < _size; x++)
         {
             BoardSlotData slot = new BoardSlotData();
             slotsCollum.Add(slot);

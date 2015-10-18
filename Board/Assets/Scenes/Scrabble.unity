@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf135f063a094ae2b1cac97522f56f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotPrefab: {fileID: 11475258, guid: b4a5d0f29e8c94f69bbd8b400c937ce8, type: 2}
 --- !u!1 &727091658
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ccb9b20aa8a664489fbf1e0a90bf3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  board: {fileID: 231354541}
 --- !u!1 &1731246534
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +654,10 @@ Prefab:
     - target: {fileID: 22460880, guid: b4a5d0f29e8c94f69bbd8b400c937ce8, type: 2}
       propertyPath: m_Pivot.y
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 162688, guid: b4a5d0f29e8c94f69bbd8b400c937ce8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4a5d0f29e8c94f69bbd8b400c937ce8, type: 2}

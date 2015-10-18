@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BoardSlotController : MonoBehaviour {
+public class SlotController : MonoBehaviour 
+{
 
 	// Use this for initialization
 	void Start () {

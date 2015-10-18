@@ -59,7 +59,7 @@ public class ScrabbleLogicManager
 
     public void Initialize()
     {
-        _board.BoardSize = DEFAULT_BOARD_SIZE;
+        _board.Size = DEFAULT_BOARD_SIZE;
         _tray.Size       = DEFAULT_DECK_SIZE;
     }
 
