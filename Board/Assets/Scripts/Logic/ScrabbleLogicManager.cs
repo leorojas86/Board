@@ -5,9 +5,6 @@ public class ScrabbleLogicManager
 {
     #region Constants
 
-    private int DEFAULT_BOARD_SIZE = 15;
-    private int DEFAULT_DECK_SIZE  = 7;
-
     #endregion
 
     #region Variables
@@ -59,8 +56,8 @@ public class ScrabbleLogicManager
 
     public void Initialize()
     {
-        _board.Size = DEFAULT_BOARD_SIZE;
-        _tray.Size       = DEFAULT_DECK_SIZE;
+        _board.Size = ScrabbleConstants.BOARD_DEFAULT_SIZE;
+		_tray.Size  = ScrabbleConstants.DECK_DEFAULT_SIZE;
     }
 
     #endregion
