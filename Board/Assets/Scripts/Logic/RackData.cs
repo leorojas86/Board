@@ -2,30 +2,30 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class DeckData
+public class RackData
 {
     #region Variables
 
     private List<SlotData> _slotsList = new List<SlotData>();
 
-    private int _deckSize = 0;
+    private int _size = 0;
 
     #endregion
 
     #region Properties
 
-    public int DeckSize
+    public int Size
     {
-        get { return _deckSize; }
+        get { return _size; }
         set 
         {
-            if(_deckSize != value)
+            if(_size != value)
             {
-                _deckSize = value;
+                _size = value;
 
                 _slotsList.Clear();
 
-                for (int x = 0; x < _deckSize; x++)
+                for (int x = 0; x < _size; x++)
                     _slotsList.Add(new SlotData());
             }
         }
@@ -35,9 +35,8 @@ public class DeckData
 
     #region Constructors
 
-    public DeckData()
+    public RackData()
     {
-
     }
 
     #endregion
