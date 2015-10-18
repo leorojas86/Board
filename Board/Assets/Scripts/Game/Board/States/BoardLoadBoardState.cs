@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class BoardLoadBoardState : BoardState 
@@ -27,7 +27,7 @@ public class BoardLoadBoardState : BoardState
 	private void LoadBoardSlots()
 	{
 		BoardData boardData 	  	= ScrabbleLogicManager.Instance.Board;
-		SlotController slotPrefab 	= _boardController.slotPrefab;
+		BoardSlotController slotPrefab 	= _boardController.slotPrefab;
 		Vector2 boardSize		    = new Vector3(ScrabbleConstants.BOARD_SLOT_DISTANCE * boardData.Size, ScrabbleConstants.BOARD_SLOT_DISTANCE * boardData.Size, 0);
 		Vector2 slotSize 			= new Vector2(ScrabbleConstants.BOARD_SLOT_DISTANCE, ScrabbleConstants.BOARD_SLOT_DISTANCE);
 		Vector3 initialPosition   	= new Vector3(-(boardSize.x / 2) + (slotSize.x / 2), -(boardSize.y / 2)+ (slotSize.y / 2), 0);
@@ -37,7 +37,7 @@ public class BoardLoadBoardState : BoardState
 		{
 			for(int y = 0; y < boardData.Size; y++)
 			{
-				SlotController newInstance   	= GameObject.Instantiate(slotPrefab);
+				BoardSlotController newInstance   	= GameObject.Instantiate(slotPrefab);
 				newInstance.transform.SetParent(_boardController.transform, true);
 				//newInstance.transform.localPosition = Vector3.zero;
 				newInstance.transform.localPosition = currentPosition;

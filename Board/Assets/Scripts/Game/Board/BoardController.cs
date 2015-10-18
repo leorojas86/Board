@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class BoardController : MonoBehaviour 
 {
 	#region Variables
 
-	public SlotController slotPrefab = null;
+	public BoardSlotController slotPrefab = null;
 
 	private FSM _fsm = new FSM();
 
