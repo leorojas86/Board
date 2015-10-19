@@ -37,6 +37,7 @@ public class TrayLoadTraySlotsState : TrayState
 			newInstance.transform.SetParent(_trayController.transform, true);
 			//newInstance.transform.localPosition = Vector3.zero;
 			newInstance.transform.localPosition = new Vector3(currentPosition, 0, 0);
+			newInstance.gameObject.SetActive(true);
 				
 			currentPosition += ScrabbleConstants.TRAY_SLOT_DISTANCE;
 

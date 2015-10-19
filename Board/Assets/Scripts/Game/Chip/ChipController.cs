@@ -9,6 +9,8 @@ public class ChipController : MonoBehaviour
 	private Text _text 		   = null;
 	private ChipData _chipData = null;
 
+	private FSM _fsm = new FSM();
+
 	#endregion
 
 	#region Properties
@@ -33,6 +35,20 @@ public class ChipController : MonoBehaviour
 	void Awake()
 	{
 		_text = GetComponent<Text>();
+
+		InitializeFSM();
+	}
+
+	private void InitializeFSM()
+	{
+		ChipIdleState idleState 		= new ChipIdleState(this);
+		ChipDraggingState draggingState = new ChipDraggingState(this);
+
+		idleState.AddTransition(draggingState, idleState.GotoDraggingState);
+
+		draggingState.AddTransition(idleState, draggingState.IsCompleted);
+
+		_fsm.CurrentState = idleState;//Initial state
 	}
 
 	#endregion

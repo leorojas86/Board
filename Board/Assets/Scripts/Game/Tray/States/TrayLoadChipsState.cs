@@ -39,6 +39,8 @@ public class TrayLoadChipsState : TrayState
 			ChipController newInstance 		= GameObject.Instantiate(ScrabbleGame.Instance.chipPrefab); 
 			newInstance.ChipData  	   		= currentChipData;
 			_trayController.Slots[x].Chip 	= newInstance;
+
+			newInstance.gameObject.SetActive(true);
 		}
 	}
 
