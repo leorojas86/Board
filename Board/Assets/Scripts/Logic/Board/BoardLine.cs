@@ -72,8 +72,8 @@ public class BoardLine
         {
             BoardSlotData currentSlot = _slots[x];
 
-            if (currentSlot.Chip != null)
-                stringVar += currentSlot.Chip.letter;
+            if(currentSlot.Chip != null)
+                stringVar += currentSlot.Chip.Letter;
         }
 
         return stringVar;

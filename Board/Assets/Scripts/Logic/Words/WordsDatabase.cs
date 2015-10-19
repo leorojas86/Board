@@ -47,6 +47,28 @@ public class WordsDatabase
         return _words.Contains(word);
     }
 
+	public List<ChipData> GetRandomChips(int count)
+	{
+		int randomWordIndex = Random.Range(0, _words.Count);
+		string randomWord   = _words[randomWordIndex];
+
+		while(randomWord.Length > count)
+			randomWord.Remove(randomWord.Length - 1);
+
+		int firstChar = 'a';
+		int lastChar  = 'z';
+
+		while(randomWord.Length < count)
+			randomWord += Random.Range(firstChar, lastChar);
+
+		List<ChipData> chips = new List<ChipData>();
+
+		for(int x = 0; x < randomWord.Length; x++)
+			chips.Add(new ChipData(randomWord[x]));
+
+		return RandomUtils.ShuffleList<ChipData>(chips);
+	}
+
     #endregion
 
 }

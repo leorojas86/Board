@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TrayLoadTrayState : TrayState
+public class TrayLoadTraySlotsState : TrayState
 {
 	#region Constructors
 
-	public TrayLoadTrayState(TrayController trayController):base(trayController)
+	public TrayLoadTraySlotsState(TrayController trayController):base(trayController)
 	{
 	}
 
@@ -18,6 +18,8 @@ public class TrayLoadTrayState : TrayState
 		base.OnEnter();
 
 		LoadTraySlots();
+
+		_isCompleted = true;
 	}
 
 	private void LoadTraySlots()
@@ -37,6 +39,8 @@ public class TrayLoadTrayState : TrayState
 			newInstance.transform.localPosition = new Vector3(currentPosition, 0, 0);
 				
 			currentPosition += ScrabbleConstants.TRAY_SLOT_DISTANCE;
+
+			_trayController.Slots.Add(newInstance);
 		}
 	}
 

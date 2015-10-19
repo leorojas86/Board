@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ChipController : MonoBehaviour {
+public class ChipController : MonoBehaviour 
+{
+	#region Variables
 
-	// Use this for initialization
-	void Start () {
-	
+	private ChipData _chipData = null;
+
+	#endregion
+
+	#region Properties
+
+	public ChipData ChipData
+	{
+		get { return _chipData; }
+		set { _chipData = value; }
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+	#endregion
 }

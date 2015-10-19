@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TrayController : MonoBehaviour 
 {
@@ -8,6 +9,17 @@ public class TrayController : MonoBehaviour
 	public TraySlotController slotPrefab = null;
 
 	private FSM _fsm = new FSM();
+
+	private List<TraySlotController> _slots = new List<TraySlotController>();
+
+	#endregion
+
+	#region Properties
+
+	public List<TraySlotController> Slots
+	{
+		get { return _slots; }
+	}
 
 	#endregion
 
@@ -20,9 +32,12 @@ public class TrayController : MonoBehaviour
 
 	private void InitializeFSM()
 	{
-		TrayLoadTrayState loadState = new TrayLoadTrayState(this);
+		TrayLoadTraySlotsState loadSlotsState = new TrayLoadTraySlotsState(this);
+		TrayLoadChipsState loadChipsState	  = new TrayLoadChipsState(this);
 
-		_fsm.CurrentState = loadState;//Setting initial state
+		loadSlotsState.AddTransition(loadChipsState, loadSlotsState.IsCompleted);
+
+		_fsm.CurrentState = loadSlotsState;//Setting initial state
 	}
 
 	void Update() 

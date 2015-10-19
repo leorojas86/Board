@@ -3,14 +3,32 @@ using System.Collections;
 
 public class TraySlotController : MonoBehaviour 
 {
+	#region Variables
 
-	// Use this for initialization
-	void Start () {
-	
+	private ChipController _chip = null;
+
+	#endregion
+
+	#region Variables
+
+	public ChipController Chip
+	{
+		get { return _chip; }
+		set 
+		{ 
+			if(_chip != value)
+			{
+				_chip = value; 
+
+				if(_chip != null)
+					_chip.transform.parent = transform;
+			}
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+	#endregion
+
+	#region Methods
+
+	#endregion
 }
