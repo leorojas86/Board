@@ -49,23 +49,16 @@ public class WordsDatabase
 
 	public List<ChipData> GetRandomChips(int count)
 	{
-		int randomWordIndex = Random.Range(0, _words.Count);
-		string randomWord   = _words[randomWordIndex];
+		string randomWord = GetRandomWord();
 
 		while(randomWord.Length > count)//Find a word that does not exeeds the chips count
-		{
-			randomWordIndex = Random.Range(0, _words.Count);
-			randomWord   	= _words[randomWordIndex];
-		}
+			randomWord = GetRandomWord();
 
-		//while(randomWord.Length > count)
-			//randomWord.Remove(randomWord.Length - 1);
+		int firstChar = 'a';
+		int lastChar  = 'z';
 
-		//int firstChar = 'a';
-		//int lastChar  = 'z';
-
-		//while(randomWord.Length < count)
-			//randomWord += Random.Range(firstChar, lastChar);
+		while(randomWord.Length < count)
+			randomWord += (char)Random.Range(firstChar, lastChar);
 
 		List<ChipData> chips = new List<ChipData>();
 
@@ -74,6 +67,12 @@ public class WordsDatabase
 
 		return chips;
 		//return RandomUtils.ShuffleList<ChipData>(chips);
+	}
+
+	public string GetRandomWord()
+	{
+		int randomWordIndex = Random.Range(0, _words.Count);
+		return _words[randomWordIndex].Trim();
 	}
 
     #endregion
