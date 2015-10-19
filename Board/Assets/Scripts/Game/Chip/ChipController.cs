@@ -51,5 +51,10 @@ public class ChipController : MonoBehaviour
 		_fsm.CurrentState = idleState;//Initial state
 	}
 
+	public void Drag()
+	{
+		transform.position = Input.mousePosition;
+	}
+
 	#endregion
 }
