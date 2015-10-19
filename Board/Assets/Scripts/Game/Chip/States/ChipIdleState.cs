@@ -35,7 +35,7 @@ public class ChipIdleState : ChipState
 	{
 		float distance2D = Vector2.Distance(Input.mousePosition, _chipController.transform.position);
 
-		return Input.GetMouseButtonDown(0) && distance2D < ScrabbleConstants.CHIP_DRAG_DISTANCE;
+		return ScrabbleGame.Instance.DraggingChip == null && Input.GetMouseButtonDown(0) && distance2D < ScrabbleConstants.CHIP_DRAG_DISTANCE;
 	}
 
 	#endregion

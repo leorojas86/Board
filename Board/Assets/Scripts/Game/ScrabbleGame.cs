@@ -12,6 +12,8 @@ public class ScrabbleGame : MonoBehaviour
 
 	private static ScrabbleGame _instance = null;
 
+	private ChipController _draggingChip = null;
+
 	#endregion
 
 	#region Properties
@@ -19,6 +21,12 @@ public class ScrabbleGame : MonoBehaviour
 	public static ScrabbleGame Instance
 	{
 		get { return _instance; }
+	}
+
+	public ChipController DraggingChip
+	{
+		get { return _draggingChip; }
+		set { _draggingChip = value; }
 	}
 
 	#endregion
