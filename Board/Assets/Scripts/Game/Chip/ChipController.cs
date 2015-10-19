@@ -7,7 +7,8 @@ public class ChipController : MonoBehaviour
 {
 	#region Variables
 
-	private Text _text 		   = null;
+	public Text text 		   = null;
+
 	private ChipData _chipData = null;
 
 	private FSM _fsm = new FSM();
@@ -26,14 +27,9 @@ public class ChipController : MonoBehaviour
 			if(_chipData != value)
 			{
 				_chipData  = value;
-				_text.text = _chipData != null ? _chipData.Letter.ToString().ToUpper() : string.Empty;
+				text.text = _chipData != null ? _chipData.Letter.ToString().ToUpper() : string.Empty;
 			}
 		}
-	}
-
-	public Text Text
-	{
-		get { return _text; }
 	}
 
 	/*public EventTrigger EventTrigger
@@ -47,7 +43,6 @@ public class ChipController : MonoBehaviour
 
 	void Awake()
 	{
-		_text = GetComponent<Text>();
 
 		//_eventTrigger = gameObject.AddComponent<EventTrigger>();
 
