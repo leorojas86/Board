@@ -57,7 +57,7 @@ public class ScrabbleLogicManager
     public void Initialize()
     {
         _board.Size = ScrabbleConstants.BOARD_DEFAULT_SIZE;
-		_tray.Size  = ScrabbleConstants.DECK_DEFAULT_SIZE;
+		_tray.Size  = ScrabbleConstants.TRAY_DEFAULT_SIZE;
     }
 
     #endregion

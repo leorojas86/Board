@@ -21,7 +21,10 @@ public class TraySlotController : MonoBehaviour
 				_chip = value; 
 
 				if(_chip != null)
-					_chip.transform.parent = transform;
+				{
+					_chip.transform.SetParent(transform, true);
+					_chip.transform.localPosition = Vector3.zero;
+				}
 			}
 		}
 	}

@@ -8,6 +8,8 @@ public class ScrabbleGame : MonoBehaviour
 	public BoardController board = null;
 	public TrayController tray   = null;
 
+	public ChipController chipPrefab = null;
+
 	private static ScrabbleGame _instance = null;
 
 	#endregion

@@ -52,21 +52,28 @@ public class WordsDatabase
 		int randomWordIndex = Random.Range(0, _words.Count);
 		string randomWord   = _words[randomWordIndex];
 
-		while(randomWord.Length > count)
-			randomWord.Remove(randomWord.Length - 1);
+		while(randomWord.Length > count)//Find a word that does not exeeds the chips count
+		{
+			randomWordIndex = Random.Range(0, _words.Count);
+			randomWord   	= _words[randomWordIndex];
+		}
 
-		int firstChar = 'a';
-		int lastChar  = 'z';
+		//while(randomWord.Length > count)
+			//randomWord.Remove(randomWord.Length - 1);
 
-		while(randomWord.Length < count)
-			randomWord += Random.Range(firstChar, lastChar);
+		//int firstChar = 'a';
+		//int lastChar  = 'z';
+
+		//while(randomWord.Length < count)
+			//randomWord += Random.Range(firstChar, lastChar);
 
 		List<ChipData> chips = new List<ChipData>();
 
 		for(int x = 0; x < randomWord.Length; x++)
 			chips.Add(new ChipData(randomWord[x]));
 
-		return RandomUtils.ShuffleList<ChipData>(chips);
+		return chips;
+		//return RandomUtils.ShuffleList<ChipData>(chips);
 	}
 
     #endregion
