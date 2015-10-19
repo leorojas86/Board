@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ChipController : MonoBehaviour 
 {
@@ -10,6 +11,8 @@ public class ChipController : MonoBehaviour
 	private ChipData _chipData = null;
 
 	private FSM _fsm = new FSM();
+
+	//private EventTrigger _eventTrigger = null;
 
 	#endregion
 
@@ -28,6 +31,16 @@ public class ChipController : MonoBehaviour
 		}
 	}
 
+	public Text Text
+	{
+		get { return _text; }
+	}
+
+	/*public EventTrigger EventTrigger
+	{
+		get { return _eventTrigger; }
+	}*/
+
 	#endregion
 
 	#region Methods
@@ -35,6 +48,8 @@ public class ChipController : MonoBehaviour
 	void Awake()
 	{
 		_text = GetComponent<Text>();
+
+		//_eventTrigger = gameObject.AddComponent<EventTrigger>();
 
 		InitializeFSM();
 	}
@@ -51,9 +66,10 @@ public class ChipController : MonoBehaviour
 		_fsm.CurrentState = idleState;//Initial state
 	}
 
-	public void Drag()
+	void Update()
 	{
-		transform.position = Input.mousePosition;
+		_fsm.Update();
+		//transform.position = Input.mousePosition;
 	}
 
 	#endregion

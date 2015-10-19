@@ -11,5 +11,7 @@ public static class ScrabbleConstants
 	public const float TRAY_SLOT_DISTANCE 	= 45f;
 	public const int TRAY_DEFAULT_SIZE 		= 7;
 
+	public const float CHIP_DRAG_DISTANCE = 20;
+
 	#endregion
 }

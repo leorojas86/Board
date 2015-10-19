@@ -13,14 +13,21 @@ public class ChipDraggingState : ChipState
 
 	#region Methods
 
-	public override void OnEnter ()
+	public override void OnEnter()
 	{
-		base.OnEnter ();
+		base.OnEnter();
 
 
 	}
 
+	public override void OnExecute()
+	{
+		base.OnExecute();
 
+		_chipController.transform.position = Input.mousePosition;
+
+		_isCompleted = Input.GetMouseButtonUp(0);
+	}
 
 	#endregion
 }

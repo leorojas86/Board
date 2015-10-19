@@ -5,7 +5,7 @@ public class ChipState : FSMState
 {
 	#region Variables
 
-	private ChipController _chipController = null;
+	protected ChipController _chipController = null;
 
 	#endregion
 
