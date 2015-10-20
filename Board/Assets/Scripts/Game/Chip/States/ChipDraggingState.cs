@@ -21,6 +21,9 @@ public class ChipDraggingState : ChipState
 		ScrabbleGame.Instance.DraggingChip = _chipController;
 
 		_chipController.transform.SetParent(ScrabbleGame.Instance.canvas.transform, true);
+
+		if(_chipController.ParentBoardSlot != null)
+		   _chipController.ParentBoardSlot.Chip = null;
 	}
 
 	public override void OnExecute()

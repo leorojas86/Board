@@ -13,11 +13,8 @@ public class ChipController : MonoBehaviour
 
 	private FSM _fsm = new FSM();
 
-	private TraySlotController _sourceSlot = null;
-
-	//private EventTrigger _eventTrigger = null;
-
-	//public System.Action<ChipController> OnDragFinished = null;
+	private TraySlotController _sourceTraySlot   = null;
+	private BoardSlotController _parentBoardSlot = null;
 
 	#endregion
 
@@ -30,22 +27,23 @@ public class ChipController : MonoBehaviour
 		{
 			if(_chipData != value)
 			{
-				_chipData  = value;
+				_chipData = value;
 				text.text = _chipData != null ? _chipData.Letter.ToString().ToUpper() : string.Empty;
 			}
 		}
 	}
 
-	public TraySlotController SourceSlot
+	public TraySlotController SourceTraySlot
 	{
-		get { return _sourceSlot; }
-		set { _sourceSlot = value; }
-	} 
+		get { return _sourceTraySlot; }
+		set { _sourceTraySlot = value; }
+	}
 
-	/*public EventTrigger EventTrigger
+	public BoardSlotController ParentBoardSlot
 	{
-		get { return _eventTrigger; }
-	}*/
+		get { return _parentBoardSlot; }
+		set { _parentBoardSlot = value; }
+	}
 
 	#endregion
 
@@ -53,9 +51,6 @@ public class ChipController : MonoBehaviour
 
 	void Awake()
 	{
-
-		//_eventTrigger = gameObject.AddComponent<EventTrigger>();
-
 		InitializeFSM();
 	}
 
@@ -74,7 +69,6 @@ public class ChipController : MonoBehaviour
 	void Update()
 	{
 		_fsm.Update();
-		//transform.position = Input.mousePosition;
 	}
 
 	#endregion

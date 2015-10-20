@@ -18,12 +18,16 @@ public class BoardSlotController : MonoBehaviour
 		{
 			if(_chip != value)
 			{
+				if(_chip != null)
+					_chip.ParentBoardSlot = null;
+
 				_chip = value;
 
 				if(_chip != null)
 				{
 					_chip.transform.SetParent(transform, true);
-					_chip.transform.localPosition = Vector3.zero;
+					_chip.transform.localPosition 	= Vector3.zero;
+					_chip.ParentBoardSlot 			= this;
 				}
 			}
 		}
