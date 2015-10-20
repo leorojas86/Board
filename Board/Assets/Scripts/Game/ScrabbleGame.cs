@@ -7,6 +7,7 @@ public class ScrabbleGame : MonoBehaviour
 
 	public BoardController board = null;
 	public TrayController tray   = null;
+	public Canvas canvas 	     = null;
 
 	public ChipController chipPrefab = null;
 
@@ -42,7 +43,7 @@ public class ScrabbleGame : MonoBehaviour
 		board.Initialize();
 		tray.Initialize();
 
-		board.transform.localScale = new Vector3 (1.7f, 1.7f, 1.7f);
+		board.transform.localScale = new Vector3(1.7f, 1.7f, 1.7f);
     }
 
     #endregion

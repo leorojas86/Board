@@ -1255,6 +1255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   board: {fileID: 231354541}
   tray: {fileID: 398419764}
+  canvas: {fileID: 1731246537}
   chipPrefab: {fileID: 200313675}
 --- !u!1 &1213637308
 GameObject:

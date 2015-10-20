@@ -43,6 +43,7 @@ public class BoardLoadBoardState : BoardState
 				newInstance.transform.localPosition = currentPosition;
 				newInstance.gameObject.SetActive(true);
 
+				_boardController.Slots.Add(newInstance);
 
 				currentPosition.y += ScrabbleConstants.BOARD_SLOT_DISTANCE;
 			}

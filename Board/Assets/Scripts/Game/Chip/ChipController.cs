@@ -13,7 +13,11 @@ public class ChipController : MonoBehaviour
 
 	private FSM _fsm = new FSM();
 
+	private TraySlotController _sourceSlot = null;
+
 	//private EventTrigger _eventTrigger = null;
+
+	//public System.Action<ChipController> OnDragFinished = null;
 
 	#endregion
 
@@ -31,6 +35,12 @@ public class ChipController : MonoBehaviour
 			}
 		}
 	}
+
+	public TraySlotController SourceSlot
+	{
+		get { return _sourceSlot; }
+		set { _sourceSlot = value; }
+	} 
 
 	/*public EventTrigger EventTrigger
 	{
