@@ -42,7 +42,7 @@ public class ScrabbleGame : MonoBehaviour
 		board.Initialize();
 		tray.Initialize();
 
-		board.transform.localScale = new Vector3 (2, 2, 2);
+		board.transform.localScale = new Vector3 (1.7f, 1.7f, 1.7f);
     }
 
     #endregion
