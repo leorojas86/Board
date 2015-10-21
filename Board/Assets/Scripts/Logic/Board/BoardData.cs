@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class BoardData 
 {
@@ -46,6 +47,7 @@ public class BoardData
                 _size = value;
 
                 CreateSlotsMatrix();
+                LoadSlotTypes();
             }
         }
     }
@@ -192,6 +194,32 @@ public class BoardData
         }
 
         return slotsCollum;
+    }
+
+    private void LoadSlotTypes()
+    {
+        TextAsset boardLayoutTextAsset = Resources.Load<TextAsset>("BoardLayout");
+
+        string[] lines = boardLayoutTextAsset.text.Split(new string[] { "\n" }, System.StringSplitOptions.RemoveEmptyEntries);
+
+        for(int y = 0; y < lines.Length; y++)
+        {
+            string currentLine = lines[y];
+            string[] types     = currentLine.Split(new string[]{","}, System.StringSplitOptions.RemoveEmptyEntries);
+
+            for(int x = 0; x < types.Length; x++)
+            {
+                string currentType          = types[x];
+                BoardSlotData currentSlot   = _slotsMatrix[x][y];
+
+                if(currentType == "  ")
+                    currentSlot.Type = BoardSlotData.SlotType.Empty;
+                else if(currentType == "**")
+                    currentSlot.Type = BoardSlotData.SlotType.Center;
+                else
+                    currentSlot.Type = (BoardSlotData.SlotType)Enum.Parse(typeof(BoardSlotData.SlotType), currentType);
+            }
+        }
     }
 
     #endregion

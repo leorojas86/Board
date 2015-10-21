@@ -3,6 +3,20 @@ using System.Collections;
 
 public class BoardSlotData
 {
+    #region
+
+    public enum SlotType
+    {
+        Empty,
+        Center,
+        TW,
+        DW,
+        TL,
+        DL
+    }
+
+    #endregion
+
     #region Variables
 
     private ChipData _chip        = null;
@@ -11,6 +25,8 @@ public class BoardSlotData
     private SlotData _rightSlot   = null;
     private SlotData _topSlot     = null;
     private SlotData _bottomSlot  = null;*/
+
+    private SlotType _type = SlotType.Empty;
 
     #endregion
 
@@ -29,6 +45,12 @@ public class BoardSlotData
     public bool HasTemporalChip
     {
         get { return _hasTemporalChip; }
+    }
+
+    public SlotType Type
+    {
+        get { return _type; }
+        set { _type = value; }
     }
 
     /*public SlotData LeftSlot
